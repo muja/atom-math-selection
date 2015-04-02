@@ -7,5 +7,6 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-'atom-workspace':
-  'ctrl-alt-o': 'math-selection:toggle'
+'atom-text-editor:not([mini])':
+  'alt-cmd-r': 'math-selection:replace'
+  'alt-cmd-c': 'math-selection:copy'
