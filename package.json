@@ -5,7 +5,7 @@
   "description": "Replaces the selected text with its evaluation passed to mathjs.",
   "author": {
     "name": "Danyel Bayraktar",
-    "email": "danyel@webhippie.de"
+    "email": "cydrop@gmail.com"
   },
   "activationEvents": [
     "math-selection:copy",
