@@ -1,3 +1,4 @@
+{ CompositeDisposable } = require 'atom'
 math = require 'mathjs'
 allowUnsafeNewFunction = null
 
@@ -27,13 +28,15 @@ copySelections = (editor) ->
   editor.buffer.history.redoStack = stack
 
 module.exports =
-  activate: (state) ->
+  activate: ->
     { allowUnsafeNewFunction } = require 'loophole'
-    atom.workspaceView.eachEditorView (editorView) ->
-      editorView.command 'math-selection:replace', ->
-        editor = editorView.getEditor()
+    @subscriptions = new CompositeDisposable
+    @subscriptions.add atom.commands.add 'atom-workspace', 'math-selection:replace', ->
+      if editor = atom.workspace.getActiveTextEditor()
         editor.transact -> replaceSelections(editor)
-      editorView.command 'math-selection:copy', ->
-        copySelections(editorView.getEditor())
+    @subscriptions.add atom.commands.add 'atom-workspace', 'math-selection:copy', ->
+      if editor = atom.workspace.getActiveTextEditor()
+        copySelections(editor)
 
   deactivate: ->
+    @subscriptions.dispose()
