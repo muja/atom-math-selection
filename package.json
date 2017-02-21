@@ -1,7 +1,7 @@
 {
   "name": "math-selection",
   "main": "./lib/math-selection",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Replaces the selected text with its evaluation passed to mathjs.",
   "author": {
     "name": "Danyel Bayraktar",
