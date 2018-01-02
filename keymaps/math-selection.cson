@@ -7,6 +7,13 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-'atom-text-editor:not([mini])':
+
+# Mac bindings
+'.platform-darwin atom-text-editor:not([mini])':
   'alt-cmd-r': 'math-selection:replace'
   'alt-cmd-c': 'math-selection:copy'
+
+# Windows and linux bindings
+'.platform-win32 atom-text-editor:not([mini]), .platform-linux atom-text-editor:not([mini])':
+  'alt-shift-r': 'math-selection:replace'
+  'alt-shift-c': 'math-selection:copy'
